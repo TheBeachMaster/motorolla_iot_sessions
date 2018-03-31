@@ -20,7 +20,6 @@ public:
      *          Ideally between 0.889798  and 0.999958
      * @return  The generated temprature
      */
-    
     double lcdGen_temperature(double a, double c);
 
     /** \brief Linear Congruential pressure data generator
@@ -35,7 +34,7 @@ public:
      *          Lower than (m) if (m) is not equal to 0
      *          Ideally between 0.45232 and 0.64329
      * @return  The generated pressure data
-     */
+     */ 
     double lcdGen_pressure(double a, double c);
 
     /** \brief Linear Congruential humidity data generator
