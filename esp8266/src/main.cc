@@ -18,26 +18,28 @@ void wifiConnect();
 void sendTemperature();
 void sendPressure();
 void sendHumidity();
-
+double genA;
+double cTemp;
+double cPress;
+double cHum;
+char data[50];
 
 void setup() {
   Serial.begin(115200);
   wifiConnect();
 }
 
-double genA
-double cTemp;
-double cPress;
-double cHum;
-
 void loop() {
 
     while (!client.connected())
     {
-      client.connect("ESP8266-0112", "<username>", "<password>");
-      client.publish("<username>/ESP8266-0112/birth", "ESP8266-0112birth");
+      client.connect("ESP8266-023545", "<username>", "<password>");
+      client.publish("<username>/ESP8266-023545/birth", "ESP8266-023545birth");
     }
 
+    sendHumidity();
+    sendPressure();
+    sendTemperature();
 
     int cnt = DELAY_INTERVAL;
     while(cnt--)
@@ -62,7 +64,7 @@ void sendTemperature()
    {
     Serial.println("Connection failed");
     wifiConnect(); 
-    client.connect("ESP8266-0112", "<username>", "<password>");
+    client.connect("ESP8266-023545", "<username>", "<password>");
   }
 
 genA = (random(48989, 60562)) / 100000;
@@ -70,9 +72,9 @@ cTemp = (random(45232, 64329)) / 100000;
  
 double temp = procData.lcdGen_temperature(genA, cTemp);
 
-char data[50];
+
 snprintf(data,20, "%ld", temp);
-client.publish("<username>/ESP8266-0112/readings/temp", data, QOS);
+client.publish("<username>/ESP8266-023545/readings/temp", data, QOS);
 }
 
 void sendPressure()
@@ -81,7 +83,7 @@ void sendPressure()
    {
     Serial.println("Connection failed");
     wifiConnect(); 
-    client.connect("ESP8266-0112", "<username>", "<password>");
+    client.connect("ESP8266-023545", "<username>", "<password>");
   }
   
 genA = (random(46625, 60562)) / 100000; 
@@ -89,9 +91,8 @@ cPress = (random(45232, 64329)) / 100000;
 
 double press = procData.lcdGen_pressure(genA, cPress);
 
- char data[50];
  snprintf(data,10, "%ld", press);
- client.publish("<username>/ESP8266-0112/readings/pressure", data, QOS);
+ client.publish("<username>/ESP8266-023545/readings/pressure", data, QOS);
 }
 
 void sendHumidity()
@@ -100,14 +101,13 @@ void sendHumidity()
   {
     Serial.println("Connection failed");
     wifiConnect(); 
-    client.connect("ESP8266-0112", "<username>", "<password>");
+    client.connect("ESP8266-023545", "<username>", "<password>");
   }
 
   genA = (random(56256, 60562)) / 100000;
   cHum = (random(38987, 45232)) / 100000;
 
-  double hum = procData.lcdGen_humidity(genA, cHum)
- char data[50];
+  double hum = procData.lcdGen_humidity(genA, cHum);
  snprintf(data,10, "%ld", hum);
  client.publish("<username>/ESP8266-023545/readings/humidity", data, QOS);
 }

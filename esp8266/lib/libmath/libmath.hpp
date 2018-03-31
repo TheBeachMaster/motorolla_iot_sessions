@@ -4,7 +4,7 @@
 class LibMath
 {
 public:
-    LibMath();
+    LibMath(){}
 
     /** \brief Linear Congruential temprature data generator
      * 
