@@ -1,5 +1,6 @@
 #include "libmath.hpp"
 
+
     /** \brief Linear Congruential temprature data generator
      * 
      * x = (a * x + c) mod m
@@ -16,6 +17,7 @@
      */
 double LibMath::lcdGen_temperature(double a, double c)
 {
+   double temperatureModulus;
    temperatureModulus = 42 % 10;
    double tempVal = 0.99926546;
    tempVal = ( a * tempVal + c ) * temperatureModulus;
@@ -37,6 +39,7 @@ double LibMath::lcdGen_temperature(double a, double c)
      */
 double LibMath::lcdGen_humidity(double a, double c)
 {
+   double humidtyModuls;
    humidtyModuls = 87 % 5;
    double humidityVal = 0.99946;
    humidityVal = ( a * humidityVal + c ) * humidtyModuls;
@@ -58,6 +61,7 @@ double LibMath::lcdGen_humidity(double a, double c)
      */ 
 double LibMath::lcdGen_pressure(double a, double c)
 {
+   double pressureModulus;
    pressureModulus = 3 % 2;
    double pressureVal = 0.55624;
    pressureVal = ( a * pressureVal + c ) * pressureModulus;

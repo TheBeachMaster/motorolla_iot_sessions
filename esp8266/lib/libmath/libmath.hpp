@@ -53,9 +53,7 @@ public:
     double lcdGen_humidity(double a, double c);
 
 private:
-    static double temperatureModulus;
-    static double pressureModulus;
-    static double humidtyModuls;
+
     // TODO Declare initializers
     const double tempMax = 42;
     const double tempMIn = 10;
