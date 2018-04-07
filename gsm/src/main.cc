@@ -11,12 +11,9 @@
 SoftwareSerial SerialAT(2,3);
 DHT dht(DHTPIN, DHTTYPE);
 
-float temperature;
-float humidty;
-float heatIndex;
-temperature = dht.readTemperature();
-humidty = dht.readHumidity();
-heatIndex = dht.computeHeatIndex(temperature, humidty, false);
+float temperature = dht.readTemperature();
+float humidty = dht.readHumidity();
+float heatIndex = dht.computeHeatIndex(temperature, humidty, false);
 const char apn[]  = "internet";
 const char user[] = "";
 const char pass[] = "";
@@ -96,13 +93,13 @@ void loop()
 
 
 // send temp
-snprintf(mqttPayloadT,30, "%ld", temperature);
+snprintf(mqttPayloadT,30, "%f", temperature);
 sendPayload(mqttPayloadT, temperatureTopic, PUBLISH_QOS);
 //send humidity
-snprintf(mqttPayloadH, 30, "%ld", humidty);
+snprintf(mqttPayloadH, 30, "%f", humidty);
 sendPayload(mqttPayloadH, humidityTopic, PUBLISH_QOS);
 // send heat index
-snprintf(mqttPayloadI, 30, "%ld", heatIndex);
+snprintf(mqttPayloadI, 30, "%f", heatIndex);
 sendPayload(mqttPayloadI, heatIndexTopic, PUBLISH_QOS);
 
 int counter = DELAY_PERIOD;
@@ -114,13 +111,13 @@ void messageCallback(char* topic, byte* payload, unsigned int length)
 {
     SerialMon.print("Message received from:");
     SerialMon.println(topic);
-
+    String data = (char *)payload;
     if (String(topic) == ledStatusTopic)
     {
-        if ((String)payload == "OFF")
+        if (data == "OFF")
         {
             digitalWrite(LEDPIN, ledState);
-        }else if ((String)payload == "ON")
+        }else if (data == "ON")
         {
             ledState = HIGH;
             digitalWrite(LEDPIN, ledState);
