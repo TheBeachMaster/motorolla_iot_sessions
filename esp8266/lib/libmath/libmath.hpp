@@ -55,11 +55,10 @@ public:
 private:
 
     // TODO Declare initializers
-    const double tempMax = 42;
-    const double tempMIn = 10;
-    const double pressMax = 2;
-    const double humMax = 87;
-    const double humMin = 5;
+    const int tempMax = 42;
+    const int tempMIn = 10;
+    const int humMax = 87;
+    const int humMin = 5;
     const double maxPress = 1.2;
     const double minPress = 0.7;
 };

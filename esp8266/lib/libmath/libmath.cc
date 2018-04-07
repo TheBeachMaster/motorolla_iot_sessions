@@ -18,7 +18,7 @@
 double LibMath::lcdGen_temperature(double a, double c)
 {
    double temperatureModulus;
-   temperatureModulus = 42 % 10;
+   temperatureModulus = tempMax % tempMIn;
    double tempVal = 0.99926546;
    tempVal = ( a * tempVal + c ) * temperatureModulus;
    return tempVal;
@@ -40,7 +40,7 @@ double LibMath::lcdGen_temperature(double a, double c)
 double LibMath::lcdGen_humidity(double a, double c)
 {
    double humidtyModuls;
-   humidtyModuls = 87 % 5;
+   humidtyModuls = humMax % humMin;
    double humidityVal = 0.99946;
    humidityVal = ( a * humidityVal + c ) * humidtyModuls;
    return humidityVal;
