@@ -15,8 +15,8 @@ fi
 # Install the latest Platform IO
 sudo pip install -U platformio
 
-# Install WiFi 101  , TinyGSM , Dallas Temp and OneWire 
-sudo platformio lib -g install 299 1287 54 2604
+# Install WiFi 101 , AfricasTalkingCLoud , TinyGSM , Dallas Temp and OneWire 
+sudo platformio lib -g install 299 1287 54 2604 2070
 
 # WIFI101 
 sudo platformio ci ./wifi --board=megaatmega2560 --lib="."
