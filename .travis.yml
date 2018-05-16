@@ -7,10 +7,6 @@ cache:
     directories:
         - "~/.platformio"
 
-install:
-    - pip install -U platformio
-    - platformio update
-
 script:
     - sudo chmod +x pio.sh
     - sudo ./pio.sh

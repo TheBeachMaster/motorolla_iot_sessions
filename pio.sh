@@ -12,19 +12,21 @@ then
     exit 1
 fi
 
+# Install the latest Platform IO
+sudo pip install -U platformio
 
 # Install WiFi 101  , TinyGSM , Dallas Temp and OneWire 
-platformio lib -g install 299 1287 54 2604
+sudo platformio lib -g install 299 1287 54 2604
 
 # WIFI101 
-platformio ci ./wifi --board=megaatmega2560 --lib="."
-platformio ci ./wifi_sub --board=megaatmega2560 --lib="."
+sudo platformio ci ./wifi --board=megaatmega2560 --lib="."
+sudo platformio ci ./wifi_sub --board=megaatmega2560 --lib="."
 
 # GSM
-platformio ci ./gsm --board=megaatmega2560 --lib="." 
-platformio ci ./gsm_sub --board=megaatmega2560 --lib="." 
+sudo platformio ci ./gsm --board=megaatmega2560 --lib="." 
+sudo platformio ci ./gsm_sub --board=megaatmega2560 --lib="." 
 
 # ESP8266
-platformio ci  ./esp8266 --board=esp01 --lib="." --lib="esp8266/lib/libmath"
+sudo platformio ci  ./esp8266 --board=esp01 --lib="." --lib="esp8266/lib/libmath"
 
 exit 0
