@@ -1,0 +1,7 @@
+image: ubuntu
+
+build_script:
+- sh: sudo chmod +x pio.sh  
+
+test_script:
+- sh: sudo ./pio.sh

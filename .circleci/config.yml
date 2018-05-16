@@ -1,0 +1,15 @@
+version: 2.0
+jobs:
+  platformio:
+    docker:
+      - image: circleci/python:2.7.15-stretch-node-browsers
+    steps:
+      - checkout
+      - run: chmod +x pio.sh
+      - run: ./pio.sh
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - platformio
