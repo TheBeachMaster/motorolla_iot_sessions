@@ -15,6 +15,13 @@ boolean sandbox = true;
 AfricasTalkingCloudClient client(sandbox, sandbox101);
 // the setup function runs once when you press reset or power the board
 
+void setup(void);
+void loop(void);
+void _keepAlive(void);
+void connectToWPA(void);
+void printWifiData(void);
+void printCurrentNet(void);
+
 void setup() {
     WiFi.setPins(10, 3, 4);
     Serial.begin(9600);
@@ -40,7 +47,7 @@ void loop() {
         }
     }
 
-    dcValue = analogRead(sensorPin)
+    dcValue = analogRead(sensorPin);
     long now = millis();
     if (now - lastMsg > 5000) {
         lastMsg = now;
