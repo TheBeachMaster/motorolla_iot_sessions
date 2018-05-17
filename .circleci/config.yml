@@ -8,8 +8,18 @@ jobs:
       - run: chmod +x pio.sh
       - run: ./pio.sh
 
+  python_test:
+    docker:
+      - image: circleci/python:2.7.15-stretch-node-browsers
+    steps:
+      - checkout
+      - run: chmod +x pytest.sh
+      - run: ./pytest.sh
+
+
 workflows:
   version: 2
   build_and_test:
     jobs:
       - platformio
+      - python_test

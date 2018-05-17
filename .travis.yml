@@ -8,5 +8,6 @@ cache:
         - "~/.platformio"
 
 script:
-    - sudo chmod +x pio.sh
+    - sudo chmod +x *.sh
     - sudo ./pio.sh
+    - sudo ./pytest.sh
