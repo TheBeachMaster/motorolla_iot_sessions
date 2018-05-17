@@ -15,7 +15,7 @@ fi
 # Install the latest Platform IO
 sudo pip install -U platformio
 
-# Install WiFi 101 , AfricasTalkingCLoud , TinyGSM , Dallas Temp and OneWire plus a buch of Adafruit Libraries
+# Install WiFi 101 , AfricasTalkingCLoud , TinyGSM , Dallas Temp and OneWire plus a bunch of Adafruit Libraries
 sudo platformio lib -g install 299 1287 54 2604 2070 31 19
 
 # WIFI101 
@@ -23,7 +23,7 @@ sudo platformio ci ./wifi --board=megaatmega2560 --lib="."
 sudo platformio ci ./wifi_sub --board=megaatmega2560 --lib="."
 
 # GSM
-sudo platformio ci ./gsm --board=megaatmega2560 --lib="." 
+sudo platformio ci ./gsm --board=uno --lib="." 
 sudo platformio ci ./gsm_sub --board=megaatmega2560 --lib="." 
 
 # ESP8266

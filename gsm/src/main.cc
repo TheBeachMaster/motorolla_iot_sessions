@@ -3,7 +3,9 @@
 #include <AfricasTalkingCloud.h>
 #include <TinyGsmClient.h>
 #include <SoftwareSerial.h>
+#include <Adafruit_Sensor.h>
 #include <DHT.h>
+#include <DHT_U.h>
 
 #define DHTTYPE DHT11
 #define DHTPIN 5
